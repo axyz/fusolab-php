@@ -5,32 +5,32 @@
         <title>guestbook</title>
 
         <style>
-         .avatar {
-             width: 100px;
-             height: 100px;
-             float: left;
-         }
+            .avatar {
+            width: 100px;
+            height: 100px;
+            float: left;
+            }
 
-         .avatar img {
-             max-width: 100%;
-         }
+            .avatar img {
+            max-width: 100%;
+            }
 
-         .message {
-             padding: 5px;
-             border: 1px solid #ccc;
-         }
+            .message {
+            padding: 5px;
+            border: 1px solid #ccc;
+            }
 
-         .name {
-             margin-bottom: -10px;
-         }
+            .name {
+            margin-bottom: -10px;
+            }
 
-         .text {
-             margin-bottom: 21px;
-         }
+            .text {
+            margin-bottom: 21px;
+            }
 
-         .mail {
-             color: #678;
-         }
+            .mail {
+            color: #678;
+            }
         </style>
 
     </head>
@@ -63,28 +63,30 @@
                 </label><br>
                 Messaggio: <br><textarea name="msg" cols=30 rows=10></textarea><br>
                 <input type="submit" />
-        </form>
             </fieldset>
-            <br><br>
-            <?php
-            if (isset($_POST['name']) &&
-                isset($_POST['mail']) &&
-                isset($_POST['msg'])) :
-            ?>
+        </form>
 
-                <div class="message">
-                    <div class="avatar">
-                        <img src="<?= robohash($_POST['mail'], 1) ?>" />
-                    </div>
-                    <div class="post">
-                        <h3 class="name"><?= $_POST['name'] ?></h3>
-                        <p class="text"><?= $_POST['msg'] ?></p>
-                        <span class="mail"><?= antispam($_POST['mail']) ?> - <?= $_POST['date'] ?></span>
-                    </div>
+        <br><br>
+
+        <?php
+        if (isset($_POST['name']) &&
+            isset($_POST['mail']) &&
+            isset($_POST['msg'])) :
+        ?>
+
+            <div class="message">
+                <div class="avatar">
+                    <img src="<?= robohash($_POST['mail'], 1) ?>" />
                 </div>
+                <div class="post">
+                    <h3 class="name"><?= $_POST['name'] ?></h3>
+                    <p class="text"><?= $_POST['msg'] ?></p>
+                    <span class="mail"><?= antispam($_POST['mail']) ?> - <?= $_POST['date'] ?></span>
+                </div>
+            </div>
 
 
-            <?php endif; ?>
+        <?php endif; ?>
 
     </body>
 </html>
